@@ -1,0 +1,21 @@
+
+from py5paisa import FivePaisaClient
+import requests
+
+totp = input("Enter TOTP:")
+
+cred={
+    "APP_NAME":"5P51189715",
+    "APP_SOURCE":"16097",
+    "USER_ID":"utlu5WsQkQB",
+    "PASSWORD":"2CSlnQFCNrc",
+    "USER_KEY":"XsIT7ocwKltFm2oUSCqLm2G3C313Y7Nt",
+    "ENCRYPTION_KEY":"lRNjNbZlHfc2ZyU38W2FxlKCcVOoCSx0"
+    }
+    
+client = FivePaisaClient(cred=cred)
+
+client.get_totp_session('51189715',totp,'192019')
+
+ reqtok = input("Enter the Request token")
+ client.get_access_token(reqtok)
